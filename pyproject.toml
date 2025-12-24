@@ -1,0 +1,98 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "teleosinter"
+
+version = "05.05.2024"
+
+requires-python = ">=3.12.0"
+
+description = """
+Osint tool for finding information about different persons.
+This tool uses other ready-made projects.
+"""
+
+readme = "README.md"
+
+license = {file = "LICENSE"}
+
+keywords=["osint", "pentest", "cybersecurity", "investigation", "hideandsec", "malfrats"]
+
+authors = [
+    {name = "Danil Kovalev"},
+    {name = "Ivan Zabolotniy"}
+]
+
+maintainers = [
+    {name = "Danil Kovalev"}
+]
+
+classifiers = [
+    "Intended Audience :: Developers",
+    "Topic :: Osint Tools",
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only"
+]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.urls]
+Repository = "https://github.com/C3EQUALZz/TeleOSinter"
+"Bug Tracker" = "https://github.com/C3EQUALZz/TeleOSinter/issues"
+
+[options.extras_require]
+testing = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "mypy>=0.910",
+    "flake8>=3.9",
+    "tox>=3.24",
+    "pytest-mock",
+    "pytest-asyncio",
+    "mypy"
+]
+
+[options.package_data]
+core = "py.typed"
+
+[flake8]
+max-line-length = 160
+exclude = [
+    ".git",
+    "__pycache__",
+    "env",
+    "venv"
+]
+max-complexity = 8
+
+
+[tool.pytest.ini_options]
+addopts = "--cov=teleosinter"
+testpaths = [
+    "tests",
+]
+
+[tool.mypy]
+mypy_path = "src"
+strict = true
+check_untyped_defs = true
+disallow_any_generics = true
+no_implicit_optional = true
+ignore_missing_imports = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+no_implicit_reexport = true
+namespace_packages = true
+explicit_package_bases = true
+
+
+
